@@ -67,7 +67,7 @@ async function initDB() {
       user_posted_feedback: "Vital",
       the_feedback: "I must say that this tutorial is too short to be considered knowledgeable.",
       time_posted_feedback: Date.now().toString(),
-      feedback_upvotes: 49,
+      feedback_upvotes: 12,
       feedback_id: crypto.randomBytes(20).toString("hex"),
       feedback_ref: "null"
     },
@@ -75,7 +75,7 @@ async function initDB() {
       user_posted_feedback: "Victor",
       the_feedback: "You should respect the author, Short thing doesn't necessarily means less useful.",
       time_posted_feedback:  (Date.now() + 1).toString(),
-      feedback_upvotes: 49,
+      feedback_upvotes: 71,
       feedback_id: crypto.randomBytes(20).toString("hex"),
       feedback_ref: ref1
     },
@@ -83,7 +83,7 @@ async function initDB() {
       user_posted_feedback: "Vital",
       the_feedback: "There is something I never told you @Victor. I am the Author.",
       time_posted_feedback:  (Date.now() + 2).toString(),
-      feedback_upvotes: 49,
+      feedback_upvotes: 172,
       feedback_id: crypto.randomBytes(20).toString("hex"),
       feedback_ref: ref1
     },
@@ -91,7 +91,7 @@ async function initDB() {
       user_posted_feedback: "Victor",
       the_feedback: "Noooooooooooooooooo.",
       time_posted_feedback:  (Date.now() + 3).toString(),
-      feedback_upvotes: 49,
+      feedback_upvotes: 96,
       feedback_id: crypto.randomBytes(20).toString("hex"),
       feedback_ref: ref1
     },
@@ -99,7 +99,7 @@ async function initDB() {
       user_posted_feedback: "Jeevanjot",
       the_feedback: "Nice TLDR, Easier to follow. I will add it into my newspaper (if i have one which is).",
       time_posted_feedback:  (Date.now() + 4).toString(),
-      feedback_upvotes: 49,
+      feedback_upvotes: 8,
       feedback_id: crypto.randomBytes(20).toString("hex"),
       feedback_ref: "null"
     },
