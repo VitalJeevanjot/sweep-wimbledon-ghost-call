@@ -56,7 +56,7 @@ export const add_upvote: RequestHandler = async (req, res, next) => {
       }
     )
 
-    return res.status(200).send({upvotes_now: new_upvotes});
+    return res.status(200).send({upvotes_now: new_upvotes, status: "Upvoted!"});
 
   } catch(e) {
     console.log(e)
