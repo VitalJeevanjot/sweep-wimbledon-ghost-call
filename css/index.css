@@ -36,16 +36,18 @@ nav {
   height: 3em !important;
 }
 
+#avatar {
+  padding-left: 5.5%;
+}
+
+
 #comment_text {
 
   box-sizing: border-box;
 
-  position: absolute;
-  left: 23vw;
-  width: 52vw;
   height: 2em;
   transform: translate(0px, 0.7em);
-
+  width: 40vw;
   font-family: inherit;
 
   background: #ffffff;
@@ -58,7 +60,7 @@ nav {
 }
 
 
-.btn {
+.btn, .btn:hover {
   transform: translate(0px, 0.5em);
   font-family: inherit !important;
   background-color: #7E34F7;
@@ -69,4 +71,11 @@ nav {
 
 .discussion_heading {
   transform: translate(4vw, 0vw);
+}
+
+.a_line_break {
+  text-align: center;
+  margin-left: 6.0%;
+  margin-right: 27.5%;
+  border: 1px solid #E5E5E5;
 }
