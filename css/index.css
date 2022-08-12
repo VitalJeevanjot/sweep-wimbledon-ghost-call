@@ -17,8 +17,9 @@ nav {
   border-radius: 5px !important;
 }
 
-img {
-  width: 40em;
+.img1 {
+  width: 40vw;
+  min-width: 300px;
 }
 
 .materialboxed {
@@ -41,7 +42,7 @@ img {
 
   position: absolute;
   left: 23vw;
-  width: 44vw;
+  width: 52vw;
   height: 2em;
   transform: translate(0px, 0.7em);
 
