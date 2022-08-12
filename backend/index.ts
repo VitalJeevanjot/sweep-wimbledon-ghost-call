@@ -8,6 +8,7 @@ const port = 3000
 
 app.get('/get_feedbacks', handler.get_feedbacks)
 app.post('/post_feedback', handler.post_feedback)
+app.post('/add_upvote', handler.add_upvote)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

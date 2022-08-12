@@ -27,8 +27,6 @@ export const get_feedbacks: RequestHandler = async (req, res, next) => {
 
 export const post_feedback: RequestHandler = async (req, res, next) => {
 
-  console.log(req.body);
-
   try {
     await store(req.body.user_name, req.body.feedback_body, req.body.feedback_id)
     return res.status(200).send({saved: "done"});
@@ -39,8 +37,35 @@ export const post_feedback: RequestHandler = async (req, res, next) => {
   }
 }
 
+export const add_upvote: RequestHandler = async (req, res, next) => {
 
-async function store(user_name: string, feedback_body: string, feedback_id: string) {
+  try {
+    const get_current_votes: any = await Feedbacks.findOne({
+      attributes: ['feedback_upvotes'],
+      where: {
+        feedback_id: req.body.feedback_id
+      }
+    })
+    var new_upvotes = get_current_votes.dataValues.feedback_upvotes + 1
+    await Feedbacks.update(
+      {feedback_upvotes: new_upvotes}, 
+      {
+        where: {
+          feedback_id: req.body.feedback_id
+        }
+      }
+    )
+
+    return res.status(200).send({upvotes_now: new_upvotes});
+
+  } catch(e) {
+    console.log(e)
+    return res.status(500).send();
+  }
+}
+
+
+async function store(user_name: String, feedback_body: String, feedback_id: String) {
   await Feedbacks.create({
     user_posted_feedback: user_name,
     the_feedback: feedback_body,
@@ -53,7 +78,7 @@ async function store(user_name: string, feedback_body: string, feedback_id: stri
 
 // static submissions
 
-async function static_store(obj: object) {
+async function static_store(obj: Object) {
   await Feedbacks.create({
     ...obj
   });
@@ -73,15 +98,15 @@ async function initDB() {
     },
     {
       user_posted_feedback: "Victor",
-      the_feedback: "You should respect the author, Short thing doesn't necessarily means less useful.",
+      the_feedback: "You should respect the Author. Short thing doesn't means less useful at all.",
       time_posted_feedback:  (Date.now() + 1).toString(),
       feedback_upvotes: 71,
-      feedback_id: crypto.randomBytes(20).toString("hex"),
+      feedback_id: "afkbe5n32b4b1234b12",
       feedback_ref: ref1
     },
     {
       user_posted_feedback: "Vital",
-      the_feedback: "There is something I never told you @Victor. I am the Author.",
+      the_feedback: "There is something I didn't told you before Victor. I am the Author!!!.",
       time_posted_feedback:  (Date.now() + 2).toString(),
       feedback_upvotes: 172,
       feedback_id: crypto.randomBytes(20).toString("hex"),
@@ -89,7 +114,7 @@ async function initDB() {
     },
     {
       user_posted_feedback: "Victor",
-      the_feedback: "Noooooooooooooooooo.",
+      the_feedback: "Nice parle........",
       time_posted_feedback:  (Date.now() + 3).toString(),
       feedback_upvotes: 96,
       feedback_id: crypto.randomBytes(20).toString("hex"),
