@@ -65,6 +65,8 @@ nav {
   font-family: inherit !important;
   background-color: #7E34F7;
   text-transform: unset !important;
+  width: 7em;
+  font-size: 1rem;
   border-radius: 5px;
   height: 2.5em;
 }
@@ -76,6 +78,6 @@ nav {
 .a_line_break {
   text-align: center;
   margin-left: 6.0%;
-  margin-right: 27.5%;
+  margin-right: 18%;
   border: 1px solid #E5E5E5;
 }
