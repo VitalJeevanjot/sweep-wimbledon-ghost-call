@@ -10,3 +10,19 @@
       console.log(error);
     })
   });
+
+  function submit_comment() {
+    axios.post('http://localhost:3000/post_feedback', {
+      user_name: "Jeevanjot Singh Vital",
+      the_feedback: $("#comment_text").val(),
+      feedback_ref: "null"
+    })
+    .then(function (response) {
+      // handle success
+      M.toast({html: response.data.saved})
+      console.log(response);
+    }).catch((e) => {
+      M.toast({html: e.message})
+      console.log(e)
+    })
+  }

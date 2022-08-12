@@ -29,7 +29,7 @@ export const post_feedback: RequestHandler = async (req, res, next) => {
 
   try {
     await store(req.body.user_name, req.body.feedback_body, req.body.feedback_id)
-    return res.status(200).send({saved: "done"});
+    return res.status(200).send({saved: "Feedback Posted!"});
 
   } catch(e) {
     console.log(e)
