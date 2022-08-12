@@ -40,6 +40,18 @@ nav {
   padding-left: 5.5%;
 }
 
+.timing {
+  font-size: 0.8rem;
+  transform: translate(0px, 7%);
+  color: #4B587C;
+}
+
+#links_comment {
+  color: #4B587C;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
 
 #comment_text {
 
@@ -72,7 +84,7 @@ nav {
 }
 
 .discussion_heading {
-  transform: translate(4vw, 0vw);
+  transform: translate(4vw, 0vh);
 }
 
 .a_line_break {
@@ -80,4 +92,9 @@ nav {
   margin-left: 6.0%;
   margin-right: 18%;
   border: 1px solid #E5E5E5;
+}
+
+.post-text {
+  margin-left: 1.8vw !important;
+  transform: translate(0px, -6vh);
 }
