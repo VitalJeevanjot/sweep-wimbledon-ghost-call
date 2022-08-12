@@ -38,6 +38,8 @@ function submit_comment() {
   })
 }
 
+setInterval(get_feedbacks,15000)
+
 function get_feedbacks() {
   var feedbacks_url = "http://localhost:3000/get_feedbacks"
   axios.get(feedbacks_url)
