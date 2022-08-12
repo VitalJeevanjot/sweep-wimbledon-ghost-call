@@ -1,5 +1,5 @@
 body {
-  font-family: "Montserrat Alternates Medium";
+  font-family: "Inter Regular";
 }
 
 .brand-logo {
@@ -28,4 +28,44 @@ img {
 .materialboxed {
   margin: 0 auto;
   position: relative !important;
+}
+
+.circle {
+  width: 3em !important;
+  height: 3em !important;
+}
+
+#comment_text {
+
+  box-sizing: border-box;
+
+  position: absolute;
+  left: 23vw;
+  width: 44vw;
+  height: 2em;
+  transform: translate(0px, 0.7em);
+
+  font-family: inherit;
+
+  background: #ffffff;
+  border: 1px solid #101010;
+  border-radius: 2px;
+}
+
+#comment_text::placeholder {
+  color: #8A8F9C
+}
+
+
+.btn {
+  transform: translate(0px, 0.5em);
+  font-family: inherit !important;
+  background-color: #7E34F7;
+  text-transform: unset !important;
+  border-radius: 5px;
+  height: 2.5em;
+}
+
+.discussion_heading {
+  transform: translate(4vw, 0vw);
 }
