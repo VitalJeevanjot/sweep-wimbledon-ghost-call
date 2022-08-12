@@ -1,0 +1,31 @@
+body {
+  font-family: "Montserrat Alternates Medium";
+}
+
+.brand-logo {
+  font-size: 1.2em !important;
+}
+
+.nav-wrapper {
+  background-color: #7E34F7;
+  border-radius: 5px !important;
+}
+
+nav {
+  height: 2em;
+  line-height: 2em;
+  border-radius: 5px !important;
+}
+
+img {
+  width: 40em;
+}
+
+.materialboxed {
+  padding-top: 2em;
+}
+
+.materialboxed {
+  margin: 0 auto;
+  position: relative !important;
+}
