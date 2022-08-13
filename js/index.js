@@ -21,7 +21,7 @@ function submit_comment() {
   console.log($("#comment_text").val())
   if($("#comment_text").val().length < 10) {M.toast({html: "must add atleast 10 characters"}); return}
   
-  axios.post('http://localhost:3000/post_feedback', {
+  axios.post('https://backend-contribution-genievot.cloud.okteto.net/post_feedback', {
     user_name: "Jeevanjot Singh Vital",
     feedback_body: $("#comment_text").val(),
     feedback_ref: "nulli"
@@ -42,7 +42,7 @@ function reply_comment(f_id) {
   console.log($("#comment_text").val())
   if($("#comment_text").val().length < 10) {M.toast({html: "must add atleast 10 characters"}); return}
   
-  axios.post('http://localhost:3000/post_feedback', {
+  axios.post('https://backend-contribution-genievot.cloud.okteto.net/post_feedback', {
     user_name: "Jeevanjot Singh Vital",
     feedback_body: $("#comment_text").val(),
     feedback_ref: f_id
@@ -62,7 +62,7 @@ function reply_comment(f_id) {
 setInterval(get_feedbacks,15000)
 
 function get_feedbacks() {
-  var feedbacks_url = "http://localhost:3000/get_feedbacks"
+  var feedbacks_url = "https://backend-contribution-genievot.cloud.okteto.net/get_feedbacks"
   axios.get(feedbacks_url)
   .then(function (response) {
     const _posts = response.data.response
@@ -94,7 +94,7 @@ function get_feedbacks() {
 }
 
 function add_upvote(feedback_id) {
-  axios.post('http://localhost:3000/add_upvote', {
+  axios.post('https://backend-contribution-genievot.cloud.okteto.net/add_upvote', {
     feedback_id: feedback_id
   })
   .then(function (response) {
