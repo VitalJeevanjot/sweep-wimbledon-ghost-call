@@ -20,7 +20,7 @@ var template = `
         <div class="col post-text">
           <p>{{the_feedback}}</p>
           <a id="links_comment" style="cursor: pointer;" onclick="add_upvote('{{feedback_id}}')">▲ Upvote({{feedback_upvotes}})</a>
-          <a href="" id="links_comment" style="margin-left: 10px;"> Reply</a>
+          <a id="links_comment" style="cursor: pointer; margin-left: 10px;" onclick="reply_comment('{{feedback_id}}')"> Reply</a>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@ var template = `
             <div class="col post-text">
               <p>{{the_feedback}}</p>
               <a id="links_comment" style="cursor: pointer;" onclick="add_upvote('{{feedback_id}}')">▲ Upvote({{feedback_upvotes}})</a>
-              <a href="" id="links_comment" style="margin-left: 10px;"> Reply</a>
+              <!-- <a id="links_comment" style="cursor: pointer; margin-left: 10px;" onclick="reply_comment({{feedback_id}})"> Reply</a> -->
             </div>
           </div>
         </div>

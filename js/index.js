@@ -38,6 +38,27 @@ function submit_comment() {
   })
 }
 
+function reply_comment(f_id) {
+  console.log($("#comment_text").val())
+  if($("#comment_text").val().length < 10) {M.toast({html: "must add atleast 10 characters"}); return}
+  
+  axios.post('http://localhost:3000/post_feedback', {
+    user_name: "Jeevanjot Singh Vital",
+    feedback_body: $("#comment_text").val(),
+    feedback_ref: f_id
+  })
+  .then(function (response) {
+    // handle success
+    M.toast({html: response.data.saved})
+    get_feedbacks()
+    $("#comment_text").val('')
+    console.log(response);
+  }).catch((e) => {
+    M.toast({html: e.message})
+    console.log(e)
+  })
+}
+
 // setInterval(get_feedbacks,15000)
 
 function get_feedbacks() {
