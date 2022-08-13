@@ -59,7 +59,7 @@ function reply_comment(f_id) {
   })
 }
 
-// setInterval(get_feedbacks,15000)
+setInterval(get_feedbacks,15000)
 
 function get_feedbacks() {
   var feedbacks_url = "http://localhost:3000/get_feedbacks"
