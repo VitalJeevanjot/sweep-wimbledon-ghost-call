@@ -24,7 +24,7 @@ function submit_comment() {
   axios.post('http://localhost:3000/post_feedback', {
     user_name: "Jeevanjot Singh Vital",
     feedback_body: $("#comment_text").val(),
-    feedback_ref: "null"
+    feedback_ref: "nulli"
   })
   .then(function (response) {
     // handle success
@@ -38,44 +38,33 @@ function submit_comment() {
   })
 }
 
-setInterval(get_feedbacks,15000)
+// setInterval(get_feedbacks,15000)
 
 function get_feedbacks() {
   var feedbacks_url = "http://localhost:3000/get_feedbacks"
   axios.get(feedbacks_url)
   .then(function (response) {
-    const posts = response.data.response
-    var template = `
-    
-    {{#posts}}
-    <div style="height: 100px; margin-top: -2vh">
-      <div class="row">
-        <div class="col" id="avatar">
-            <img  src="assets/avataaars.png" alt="avataar1" class="circle"/>
-        </div>
-        <div class="col" style="margin-right: -1.2%;
-        margin-left: -1.5%;
-        transform: translate(0px, -5%);
-        ">
-          <p><b>{{user_posted_feedback}}</b></p>
-        </div>
-        <div class="col timing">
-          <p><b>・</b>45 min ago </p>
-        </div>
-    </div>
-    <div class="row" style="margin-left: 5vw;">
-      <div class="col post-text">
-        <p>{{the_feedback}}</p>
-        <a id="links_comment" style="cursor: pointer;" onclick="add_upvote('{{feedback_id}}')">▲ Upvote({{feedback_upvotes}})</a>
-        <a href="" id="links_comment" style="margin-left: 10px;"> Reply</a>
-      </div>
-    </div>
-    {{/posts}}
-    `;
+    const _posts = response.data.response
+
+    let posts = []
+    for (let index = 0; index < _posts.length; index++) {
+      // making sure that each parent get its child :)
+      const _children_posts = _posts.filter(x => x.feedback_ref == _posts[index].feedback_id)
+
+      _posts[index].children = _children_posts
+
+      if(_posts[index].feedback_ref == "nulli") {
+        posts.push(_posts[index])
+      }
+
+    }
+
+    // console.log(children)
+
     
     var rendered = Mustache.render(template, { posts: posts });
     document.getElementById('target').innerHTML = rendered;
-    console.log(posts)
+    console.log(_posts)
 
   })
   .catch(function (error) {

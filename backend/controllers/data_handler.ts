@@ -28,7 +28,11 @@ export const get_feedbacks: RequestHandler = async (req, res, next) => {
 export const post_feedback: RequestHandler = async (req, res, next) => {
 
   try {
-    await store(req.body.user_name, req.body.feedback_body, req.body.feedback_id)
+    await store(
+      req.body.user_name, 
+      req.body.feedback_body, 
+      req.body.feedback_ref
+    )
     return res.status(200).send({saved: "Feedback Posted!"});
 
   } catch(e) {
@@ -65,14 +69,14 @@ export const add_upvote: RequestHandler = async (req, res, next) => {
 }
 
 
-async function store(user_name: String, feedback_body: String, feedback_id: String) {
+async function store(user_name: String, feedback_body: String, feedback_ref: String) {
   await Feedbacks.create({
     user_posted_feedback: user_name,
     the_feedback: feedback_body,
     time_posted_feedback: Date.now().toString(),
     feedback_upvotes: 0,
     feedback_id: crypto.randomBytes(20).toString("hex"),
-    feedback_ref: feedback_id
+    feedback_ref: feedback_ref
   });
 }
 
@@ -93,8 +97,8 @@ async function initDB() {
       the_feedback: "I must say that this tutorial is too short to be considered knowledgeable.",
       time_posted_feedback: Date.now().toString(),
       feedback_upvotes: 12,
-      feedback_id: crypto.randomBytes(20).toString("hex"),
-      feedback_ref: "null"
+      feedback_id: ref1,
+      feedback_ref: "nulli"
     },
     {
       user_posted_feedback: "Victor",
@@ -126,7 +130,7 @@ async function initDB() {
       time_posted_feedback:  (Date.now() + 4).toString(),
       feedback_upvotes: 8,
       feedback_id: crypto.randomBytes(20).toString("hex"),
-      feedback_ref: "null"
+      feedback_ref: "nulli"
     },
   ]
 
